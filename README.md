@@ -3,14 +3,43 @@
 ##PHP微信公众号开发SDK
 
 ##功能：
-真实性检查
-接受消息
-分发消息
-被动回复文本消息
-获取ACCESS_TOKEN
+* 真实性检查
+* 接受消息
+* 分发消息
+* 被动回复文本消息
+* 获取ACCESS_TOKEN
+
+
+##文件结构
+* Core
+    * data
+        * ACCESS
+        * log
+        * pem
+    * accesstoken.lib.php
+    * curl.lib.php
+    * errorprint.lib.php
+    * fileoperate.lib.php
+    * mysql.lib.php
+    * responsepassive.lib.php
+    * wechat.lib.php
+    * wechatrequest.lib.php
+* image
+* autoloader.php
+* config.php
+* test.php
+* wechat.php
+* README.md
+* LICENSE
+
+
 
 ##如何使用
 * 1、获取你的appid和appsecret，填写在`config.php`中的相应位置
+    * ```php
+define("APP_ID","");        //在这里填写appid
+define("APP_SECRET","");    //在这里填写appsecret
+```
 * 2、上传代码包到你的虚拟空间或者云服务器中
 * 3、微信开启开发者选项，填写网址`http://你的网址/BoWechat/wechat.php`，TOKEN填写`bowechat`
 * 4、发送各种消息可收到对应的回复
