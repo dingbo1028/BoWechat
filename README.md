@@ -53,10 +53,10 @@
 ##关于作者
 ```PHP
 $DingBo=array(
-    "Name"=>"丁波"
-    "Email" =>"666@db666.top"
-    "School"=>"BNUZ"
-    "WeChat"=>"dingbo7173"
+    "Name"=>"丁波",
+    "Email" =>"666@db666.top",
+    "School"=>"BNUZ",
+    "WeChat"=>"dingbo7173",
     "GitHub"=>"https://github.com/dingbo1028/"
 );
 ```
