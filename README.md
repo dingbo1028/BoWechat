@@ -1,13 +1,21 @@
 
-#BoWechat`V1.0`
-##PHP微信公众号开发SDK
+#BoWechat`V1.5`
+####PHP微信公众号开发SDK
+
+## 新版本特性
+* 修复了`config.php`中命名空间的BUG
+* 开发了新功能——`功能`中加*号的
+* 为部分已完成的类加上了注释
 
 ##功能：
 * 真实性检查
 * 接受消息
 * 分发消息
-* 被动回复文本消息
+* *被动回复文本、图片、语音、视频、音乐消息
+* *自定义菜单的上传、删除和查看
 * 获取ACCESS_TOKEN
+* *获取JSAPI_TICKET
+* *CURL类
 
 
 ##文件结构
@@ -20,11 +28,12 @@
     * curl.lib.php
     * errorprint.lib.php
     * fileoperate.lib.php
+    * menu.lib.php
     * mysql.lib.php
     * responsepassive.lib.php
+    * ticket.lib.php
     * wechat.lib.php
     * wechatrequest.lib.php
-* image
 * autoloader.php
 * config.php
 * test.php

@@ -1,11 +1,4 @@
 ﻿<?php
-/**
- * Created by PhpStorm.
- * User: Administrator
- * Date: 2016-11-28
- * Time: 13:31
- */
-namespace BoWeChat;
 
 /* Debug模式：输出详细的日志文件
  *默认开启
