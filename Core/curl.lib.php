@@ -27,4 +27,40 @@ class Curl
 
         return $res;
     }
+
+    public static function postHttp($url,$data){
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        // post数据
+        curl_setopt($curl, CURLOPT_POST, 1);
+        // post的变量
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        $res = curl_exec($curl);
+        curl_close($curl);
+        return $res;
+    }
+
+    public static function postJsonHttp($url,$data){
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        // post数据
+        curl_setopt($curl, CURLOPT_POST, 1);
+        // post的变量
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen($data))
+        );
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        $res = curl_exec($curl);
+        curl_close($curl);
+        return $res;
+    }
+
 }
