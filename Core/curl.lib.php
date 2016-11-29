@@ -8,9 +8,17 @@
 
 namespace BoWeChat;
 
-
+/**
+ * Class Curl   Curl网络请求类
+ * @package BoWeChat
+ */
 class Curl
 {
+    /**
+     * 发送GET请求
+     * @param $url  请求地址
+     * @return mixed
+     */
     public static function getHttp($url){
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -28,6 +36,12 @@ class Curl
         return $res;
     }
 
+    /**
+     * 发送POST的数组
+     * @param $url  请求地址
+     * @param $data 数组数据
+     * @return mixed
+     */
     public static function postHttp($url,$data){
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
@@ -44,6 +58,12 @@ class Curl
         return $res;
     }
 
+    /**
+     * 发送POST的json请求
+     * @param $url  请求地址
+     * @param $data 请求json数据
+     * @return mixed
+     */
     public static function postJsonHttp($url,$data){
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
