@@ -20,8 +20,12 @@ $ac = AccessToken::getAccessToken();
 ErrorPrint::showErr('ok',$ac);*/
 
 //ErrorPrint::console("哈哈哈");
-echo "hah";
-ErrorPrint::showErr("ok",Ticket::getTicket());
+//echo "hah";
+//ErrorPrint::showErr("ok",AccessToken::getAccessToken());
 
-
-
+$json=FileOperate::getPHPFile("json".DIRECTORY_SEPARATOR."json.php");
+//ErrorPrint::showErr("ok",Menu::sentToServer($json));
+$data=json_decode($json,true);
+if(Menu::checkData($data)){
+    ErrorPrint::showErr("ok","good");
+}
