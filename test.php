@@ -19,7 +19,9 @@ AutoLoader::register();
 $ac = AccessToken::getAccessToken();
 ErrorPrint::showErr('ok',$ac);*/
 
-ErrorPrint::console("哈哈哈");
+//ErrorPrint::console("哈哈哈");
+echo "hah";
+ErrorPrint::showErr("ok",Ticket::getTicket());
 
 
 
