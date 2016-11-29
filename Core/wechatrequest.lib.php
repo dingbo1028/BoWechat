@@ -83,7 +83,7 @@ class WechatRequest
                 break;
             //未识别消息
             default:
-                $data=ResponsePassive::sendText($request['FromUserName'],$request['ToUserName'],"这个消息类型我没见过哦");
+                $data=ResponsePassive::replayText($request['FromUserName'],$request['ToUserName'],"这个消息类型我没见过哦");
                 break;
         }
         return $data;
@@ -96,86 +96,86 @@ class WechatRequest
         ErrorPrint::console($fromusername."发给".$tousername);
         $content="我收到了文本信息";
         ErrorPrint::console("准备回消息啦！");
-        return ResponsePassive::sendText($fromusername,$tousername,$content);
+        return ResponsePassive::replyText($fromusername,$tousername,$content);
     }
 
     public static function image($request,$mppk=false){
         $tousername=$request['ToUserName'];
         $fromusername=$request['FromUserName'];
         $content="我收到了图片信息";
-        return ResponsePassive::sendText($fromusername,$tousername,$content);
+        return ResponsePassive::replyText($fromusername,$tousername,$content);
     }
     public static function voice($request,$mppk=false){
         $tousername=$request['ToUserName'];
         $fromusername=$request['FromUserName'];
         $content="我听你在说话";
-        return ResponsePassive::sendText($fromusername,$tousername,$content);
+        return ResponsePassive::replyText($fromusername,$tousername,$content);
     }
     public static function video($request,$mppk=false){
         $tousername=$request['ToUserName'];
         $fromusername=$request['FromUserName'];
         $content="这视频真好看";
-        return ResponsePassive::sendText($fromusername,$tousername,$content);
+        return ResponsePassive::replyText($fromusername,$tousername,$content);
     }
     public static function shortvideo($request,$mppk=false){
         $tousername=$request['ToUserName'];
         $fromusername=$request['FromUserName'];
         $content="你在干啥呢";
-        return ResponsePassive::sendText($fromusername,$tousername,$content);
+        return ResponsePassive::replyText($fromusername,$tousername,$content);
     }
     public static function location($request,$mppk=false){
         $tousername=$request['ToUserName'];
         $fromusername=$request['FromUserName'];
         $content="你在这地方？";
-        return ResponsePassive::sendText($fromusername,$tousername,$content);
+        return ResponsePassive::replyText($fromusername,$tousername,$content);
     }
     public static function link($request,$mppk=false){
         $tousername=$request['ToUserName'];
         $fromusername=$request['FromUserName'];
         $content="你想让我看看这个连接？";
-        return ResponsePassive::sendText($fromusername,$tousername,$content);
+        return ResponsePassive::replyText($fromusername,$tousername,$content);
     }
     public static function scanSubscribe($request,$mppk=false){
         $tousername=$request['ToUserName'];
         $fromusername=$request['FromUserName'];
         $content="谢谢你关注我，我的二维码好看么";
-        return ResponsePassive::sendText($fromusername,$tousername,$content);
+        return ResponsePassive::replyText($fromusername,$tousername,$content);
     }
     public static function subscribe($request,$mppk=false){
         $tousername=$request['ToUserName'];
         $fromusername=$request['FromUserName'];
         $content="你来看我了？";
-        return ResponsePassive::sendText($fromusername,$tousername,$content);
+        return ResponsePassive::replyText($fromusername,$tousername,$content);
     }
     public static function unsubscribe($request,$mppk=false){
         $tousername=$request['ToUserName'];
         $fromusername=$request['FromUserName'];
         $content="你不理我了，虽然你也收不到这条信息";
-        return ResponsePassive::sendText($fromusername,$tousername,$content);
+        return ResponsePassive::replyText($fromusername,$tousername,$content);
     }
     public static function SCAN($request,$mppk=false){
         $tousername=$request['ToUserName'];
         $fromusername=$request['FromUserName'];
         $content="你扫到了啥？";
-        return ResponsePassive::sendText($fromusername,$tousername,$content);
+        return ResponsePassive::replyText($fromusername,$tousername,$content);
     }
     public static function EVENT_LOCATION($request,$mppk=false){
         $tousername=$request['ToUserName'];
         $fromusername=$request['FromUserName'];
         $content="你想要位置？";
-        return ResponsePassive::sendText($fromusername,$tousername,$content);
+        return ResponsePassive::replyText($fromusername,$tousername,$content);
     }
     public static function CLICK($request,$mppk=false){
         $tousername=$request['ToUserName'];
         $fromusername=$request['FromUserName'];
         $content="你点我的菜单啦哈哈";
-        return ResponsePassive::sendText($fromusername,$tousername,$content);
+        return ResponsePassive::replyText($fromusername,$tousername,$content);
     }
     public static function VIEW($request,$mppk=false){
         $tousername=$request['ToUserName'];
         $fromusername=$request['FromUserName'];
         $content="你要去这个地方";
-        return ResponsePassive::sendText($fromusername,$tousername,$content);
+        return ResponsePassive::replyText($fromusername,$tousername,$content);
     }
 
 
