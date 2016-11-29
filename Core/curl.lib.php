@@ -8,9 +8,17 @@
 
 namespace BoWeChat;
 
-
+/**
+ * Class Curl   Curl网络请求类
+ * @package BoWeChat
+ */
 class Curl
 {
+    /**
+     * 发送GET请求
+     * @param $url  请求地址
+     * @return mixed
+     */
     public static function getHttp($url){
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -27,4 +35,52 @@ class Curl
 
         return $res;
     }
+
+    /**
+     * 发送POST的数组
+     * @param $url  请求地址
+     * @param $data 数组数据
+     * @return mixed
+     */
+    public static function postHttp($url,$data){
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        // post数据
+        curl_setopt($curl, CURLOPT_POST, 1);
+        // post的变量
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        $res = curl_exec($curl);
+        curl_close($curl);
+        return $res;
+    }
+
+    /**
+     * 发送POST的json请求
+     * @param $url  请求地址
+     * @param $data 请求json数据
+     * @return mixed
+     */
+    public static function postJsonHttp($url,$data){
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        // post数据
+        curl_setopt($curl, CURLOPT_POST, 1);
+        // post的变量
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen($data))
+        );
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        $res = curl_exec($curl);
+        curl_close($curl);
+        return $res;
+    }
+
 }

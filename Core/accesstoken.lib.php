@@ -7,8 +7,17 @@
  */
 
 namespace BoWeChat;
+/**
+ * Class AccessToken ACCESS_TOKEN凭证类
+ * @package BoWeChat
+ */
 class AccessToken
 {
+    /**
+     * 获取ACCESS_TOKEN
+     * @param bool $mppk 多号模式下的身份标识
+     * @return bool
+     */
     public static function getAccessToken($mppk=false){
         if (MU_MODE){
 
@@ -20,6 +29,11 @@ class AccessToken
             return self::_getAccessToken($mppk);
     }
 
+    /**
+     * 检查本地缓存是否过期
+     * @param bool $mppk 多号模式下身份标识
+     * @return bool
+     */
     private static function _checkAccessToken($mppk=false){
         if (!MU_MODE){
             $mppk="myself";
@@ -35,6 +49,11 @@ class AccessToken
             return false;
     }
 
+    /**
+     * 获取最新凭证并缓存
+     * @param bool $mppk 多号模式下身份标识
+     * @return mixed
+     */
     private static function _getAccessToken($mppk=false){
 
         if (MU_MODE){
