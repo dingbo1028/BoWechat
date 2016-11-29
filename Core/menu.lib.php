@@ -71,4 +71,27 @@ class Menu
         }else
            ErrorPrint::showErr($rs->errcode,$rs->errmsg);
     }
+
+    public static function getMenu($mppk=false){
+        if (MU_MODE){
+
+        }
+        $ACCESS_TOKEN=AccessToken::getAccessToken($mppk);
+        $url="https://api.weixin.qq.com/cgi-bin/menu/get?access_token={$ACCESS_TOKEN}";
+        return Curl::getHttp($url);
+    }
+
+    public static function deleteMenu($mppk=false){
+        if(MU_MODE){
+
+        }
+        $ACCESS_TOKEN=AccessToken::getAccessToken($mppk);
+        $url="https://api.weixin.qq.com/cgi-bin/menu/delete?access_token={$ACCESS_TOKEN}";
+        $re=Curl::getHttp($url);
+        $re=json_decode($re);
+        if ($re->reecode=="0")
+            return true;
+        ErrorPrint::showErr($re->errcode,$re->errmsg);
+        return false;
+    }
 }
