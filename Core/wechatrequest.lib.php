@@ -94,9 +94,11 @@ class WechatRequest
         $tousername=$request['ToUserName'];
         $fromusername=$request['FromUserName'];
         ErrorPrint::console($fromusername."发给".$tousername);
-        $content="我收到了文本信息";
+        $medio_id="Pjie2InjsORFiywil3Hd0wichqbWVrGGgpTUaHx5VwtX9SXzmc0Cq3P1MpCLquqS";
+        return ResponsePassive::replyImage($fromusername,$tousername,$medio_id);
+        /*$content="我收到了文本信息";
         ErrorPrint::console("准备回消息啦！");
-        return ResponsePassive::replyText($fromusername,$tousername,$content);
+        return ResponsePassive::replyText($fromusername,$tousername,$content);*/
     }
 
     public static function image($request,$mppk=false){
