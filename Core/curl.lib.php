@@ -50,10 +50,11 @@ class Curl
         curl_setopt($curl, CURLOPT_POST, 1);
         // post的变量
         curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-
+        //multipart/form-data
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
         $res = curl_exec($curl);
+        echo curl_error($curl);
         curl_close($curl);
         return $res;
     }
@@ -82,5 +83,11 @@ class Curl
         curl_close($curl);
         return $res;
     }
+
+    public static function addFile($file){
+        //return '@'.$file;
+        return class_exists('\CURLFile')?new \CURLFile($file):'@'.$file;
+    }
+    
 
 }
