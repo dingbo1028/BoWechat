@@ -34,4 +34,18 @@ class SourceManager
         }
         return $re;
     }
+
+    public static function downloadProvisionalSource($media_id,$mppk=false){
+        if (MU_MODE){
+
+        }
+        $ACCESS_TOKEN=AccessToken::getAccessToken($mppk);
+        $url="https://api.weixin.qq.com/cgi-bin/media/get?access_token={$ACCESS_TOKEN}&media_id={$media_id}";
+        $data=Curl::getHttp($url);
+        var_dump($data);
+        $fp=fopen("img.jpg","w+");
+        fwrite($fp,$data);
+        fclose($fp);
+
+    }
 }
